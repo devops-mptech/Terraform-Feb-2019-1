@@ -24,6 +24,10 @@ variable "subnet_count" {
   default = "2"
 }
 
+variable "nat_count" {
+  default = "1"
+}
+
 variable "igw_cidr" {
   default = "0.0.0.0/0"
 }
@@ -49,4 +53,19 @@ variable "key_name" {
 variable "private_subnet_cidrs" {
   type    = "list"
   default = ["178.123.2.0/25", "178.123.3.0/25"]
+}
+
+variable "nat_private_subnet_cidrs" {
+  type    = "list"
+  default = ["178.123.4.0/28", "178.123.5.0/28"]
+}
+
+variable "ami_nat" {
+  type = "map"
+
+  default = {
+    ap-south-1 = "ami-00b3aa8a93dd09c13"
+    us-west-2  = "ami-28e07e50"
+    us-east-1  = "ami-0ff8a91507f77f867"
+  }
 }
